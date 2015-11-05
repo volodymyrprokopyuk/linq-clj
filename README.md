@@ -4,29 +4,17 @@
 
 ## Installation
 
-Download from [https://github.com/volodymyrprokopyuk/linq-clj](https://github.com/volodymyrprokopyuk/linq-clj)
+```
+$ git clone https://github.com/volodymyrprokopyuk/linq-clj.git
+```
 
 ## Usage
 
-FIXME: explanation
-
-    $ java -jar linq-clj-0.1.0-standalone.jar [args]
-
-## Options
-
-FIXME: listing of options this app accepts.
-
-## Examples
-
-...
-
-### Bugs
-
-...
-
-### Any Other Sections
-### That You Think
-### Might be Useful
+```
+$ cd linq-clj
+$ lein repl
+linq-clj.core=> (xtest)
+```
 
 ## License
 
