@@ -4,7 +4,8 @@
     [ linq-clj.restriction :as restriction ]
     [ linq-clj.projection :as projection ]
     [ linq-clj.partitioning :as partitioning ]
-    [ linq-clj.ordering :as ordering ]))
+    [ linq-clj.ordering :as ordering ]
+    [ linq-clj.grouping :as grouping ]))
 
 (defn xtest [ ]
   ; RESTRICTION
@@ -49,5 +50,12 @@
   ;(doseq [ item (ordering/then-by-comparer) ]
   ;(doseq [ item (ordering/then-by-desc data/products) ]
   ;(doseq [ item (ordering/then-by-desc-comparer) ]
-  (doseq [ item (ordering/xreverse) ]
+  ;(doseq [ item (ordering/xreverse) ]
+  ; GROUPING
+  ;(doseq [ item (grouping/group1) ]
+  ;(doseq [ item (grouping/group2) ]
+  ;(doseq [ item (grouping/group3 data/products) ]
+  ;(doseq [ item (grouping/nested data/customers) ]
+  ;(doseq [ item (grouping/comparer1) ]
+  (doseq [ item (grouping/comparer2) ]
     (println item)))
