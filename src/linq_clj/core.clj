@@ -3,7 +3,8 @@
     [ linq-clj.data :as data ]
     [ linq-clj.restriction :as restriction ]
     [ linq-clj.projection :as projection ]
-    [ linq-clj.partitioning :as partitioning ]))
+    [ linq-clj.partitioning :as partitioning ]
+    [ linq-clj.ordering :as ordering ]))
 
 (defn xtest [ ]
   ; RESTRICTION
@@ -35,5 +36,18 @@
   ;(doseq [ item (partitioning/take-while-simple) ]
   ;(doseq [ item (partitioning/take-while-indexed) ]
   ;(doseq [ item (partitioning/skip-while-simple) ]
-  (doseq [ item (partitioning/skip-while-indexed) ]
+  ;(doseq [ item (partitioning/skip-while-indexed) ]
+  ; ORDERING
+  ;(doseq [ item (ordering/order-by1) ]
+  ;(doseq [ item (ordering/order-by2) ]
+  ;(doseq [ item (ordering/order-by3 data/products) ]
+  ;(doseq [ item (ordering/order-by-comparer) ]
+  ;(doseq [ item (ordering/order-by-desc1) ]
+  ;(doseq [ item (ordering/order-by-desc2 data/products) ]
+  ;(doseq [ item (ordering/order-by-desc-comparer) ]
+  ;(doseq [ item (ordering/then-by) ]
+  ;(doseq [ item (ordering/then-by-comparer) ]
+  ;(doseq [ item (ordering/then-by-desc data/products) ]
+  ;(doseq [ item (ordering/then-by-desc-comparer) ]
+  (doseq [ item (ordering/xreverse) ]
     (println item)))
