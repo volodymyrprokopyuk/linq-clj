@@ -2,7 +2,8 @@
   (:require
     [ linq-clj.data :as data ]
     [ linq-clj.restriction :as restriction ]
-    [ linq-clj.projection :as projection ]))
+    [ linq-clj.projection :as projection ]
+    [ linq-clj.partitioning :as partitioning ]))
 
 (defn xtest [ ]
   ; RESTRICTION
@@ -25,5 +26,14 @@
   ;(doseq [ item (projection/compound3 data/customers) ]
   ;(doseq [ item (projection/assignment data/customers) ]
   ;(doseq [ item (projection/multiple data/customers) ]
-  (doseq [ item (projection/indexed data/customers) ]
+  ;(doseq [ item (projection/indexed data/customers) ]
+  ; PARTITIONING
+  ;(doseq [ item (partitioning/take-simple) ]
+  ;(doseq [ item (partitioning/take-nested data/customers) ]
+  ;(doseq [ item (partitioning/skip-simple) ]
+  ;(doseq [ item (partitioning/skip-nested data/customers) ]
+  ;(doseq [ item (partitioning/take-while-simple) ]
+  ;(doseq [ item (partitioning/take-while-indexed) ]
+  ;(doseq [ item (partitioning/skip-while-simple) ]
+  (doseq [ item (partitioning/skip-while-indexed) ]
     (println item)))
