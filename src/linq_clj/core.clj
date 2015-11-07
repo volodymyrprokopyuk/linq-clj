@@ -7,7 +7,8 @@
     [ linq-clj.ordering :as ordering ]
     [ linq-clj.grouping :as grouping ]
     [ linq-clj.set :as set ]
-    [ linq-clj.conversion :as conversion ]))
+    [ linq-clj.conversion :as conversion ]
+    [ linq-clj.element :as element ]))
 
 (defn xtest [ ]
   ; RESTRICTION
@@ -73,5 +74,11 @@
   ;(doseq [ item (conversion/xto-array) ]
   ;(doseq [ item (conversion/xto-list) ]
   ;(doseq [ item (conversion/xto-dict) ]
-  (doseq [ item (conversion/of-type) ]
+  ;(doseq [ item (conversion/of-type) ]
+  ; ELEMENT
+  ;(let [ item (element/first-simple data/products) ]
+  ;(let [ item (element/first-cond) ]
+  ;(let [ item  (element/first-or-default-simple) ]
+  ;(let [ item  (element/first-or-default-cond data/products) ]
+  (let [ item (element/element-at) ]
     (println item)))
