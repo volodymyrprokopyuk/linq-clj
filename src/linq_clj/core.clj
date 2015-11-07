@@ -13,7 +13,8 @@
     [ linq-clj.quantifiers :as quantifiers ]
     [ linq-clj.aggregate :as aggregate ]
     [ linq-clj.misc :as misc ]
-    [ linq-clj.sequence :as sequence ]))
+    [ linq-clj.sequence :as sequence ]
+    [ linq-clj.query :as query ]))
 
 (defn xtest [ ]
   ; RESTRICTION
@@ -121,5 +122,9 @@
   ;(let [ item (misc/equal1) ]
   ;(let [ item (misc/equal2) ]
   ; SEQUENCE
-  (let [ item (sequence/combine) ]
+  ;(let [ item (sequence/combine) ]
+  ; QUERY
+  ;(doseq [ item (query/xdeferred) ]
+  ;(doseq [ item (query/immediate) ]
+  (doseq [ item (query/reuse) ]
     (println item)))
