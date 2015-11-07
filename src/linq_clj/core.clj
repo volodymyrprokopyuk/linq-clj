@@ -6,7 +6,8 @@
     [ linq-clj.partitioning :as partitioning ]
     [ linq-clj.ordering :as ordering ]
     [ linq-clj.grouping :as grouping ]
-    [ linq-clj.set :as set ]))
+    [ linq-clj.set :as set ]
+    [ linq-clj.conversion :as conversion ]))
 
 (defn xtest [ ]
   ; RESTRICTION
@@ -67,5 +68,10 @@
   ;(doseq [ item (set/intersect1) ]
   ;(doseq [ item (set/intersect2 data/products data/customers) ]
   ;(doseq [ item (set/except1) ]
-  (doseq [ item (set/except2 data/products data/customers) ]
+  ;(doseq [ item (set/except2 data/products data/customers) ]
+  ; CONVERSION
+  ;(doseq [ item (conversion/xto-array) ]
+  ;(doseq [ item (conversion/xto-list) ]
+  ;(doseq [ item (conversion/xto-dict) ]
+  (doseq [ item (conversion/of-type) ]
     (println item)))
