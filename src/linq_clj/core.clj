@@ -12,7 +12,8 @@
     [ linq-clj.generation :as generation ]
     [ linq-clj.quantifiers :as quantifiers ]
     [ linq-clj.aggregate :as aggregate ]
-    [ linq-clj.misc :as misc ]))
+    [ linq-clj.misc :as misc ]
+    [ linq-clj.sequence :as sequence ]))
 
 (defn xtest [ ]
   ; RESTRICTION
@@ -118,5 +119,7 @@
   ;(doseq [ item (misc/concat1) ]
   ;(doseq [ item (misc/concat2 data/customers data/products) ]
   ;(let [ item (misc/equal1) ]
-  (let [ item (misc/equal2) ]
+  ;(let [ item (misc/equal2) ]
+  ; SEQUENCE
+  (let [ item (sequence/combine) ]
     (println item)))
