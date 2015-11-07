@@ -11,7 +11,8 @@
     [ linq-clj.element :as element ]
     [ linq-clj.generation :as generation ]
     [ linq-clj.quantifiers :as quantifiers ]
-    [ linq-clj.aggregate :as aggregate ]))
+    [ linq-clj.aggregate :as aggregate ]
+    [ linq-clj.misc :as misc ]))
 
 (defn xtest [ ]
   ; RESTRICTION
@@ -112,5 +113,10 @@
   ;(let [ item (aggregate/average-projection) ]
   ;(doseq [ item (aggregate/average-grouped data/products) ]
   ;(let [ item (aggregate/aggregate-simple) ]
-  (let [ item (aggregate/aggregate-seed) ]
+  ;(let [ item (aggregate/aggregate-seed) ]
+  ; MISC
+  ;(doseq [ item (misc/concat1) ]
+  ;(doseq [ item (misc/concat2 data/customers data/products) ]
+  ;(let [ item (misc/equal1) ]
+  (let [ item (misc/equal2) ]
     (println item)))
