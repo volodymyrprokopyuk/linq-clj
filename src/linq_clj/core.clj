@@ -10,7 +10,8 @@
     [ linq-clj.conversion :as conversion ]
     [ linq-clj.element :as element ]
     [ linq-clj.generation :as generation ]
-    [ linq-clj.quantifiers :as quantifiers ]))
+    [ linq-clj.quantifiers :as quantifiers ]
+    [ linq-clj.aggregate :as aggregate ]))
 
 (defn xtest [ ]
   ; RESTRICTION
@@ -90,5 +91,26 @@
   ;(let [ item (quantifiers/any-simple) ]
   ;(doseq [ item (quantifiers/any-grouped data/products) ]
   ;(let [ item (quantifiers/all-simple) ]
-  (doseq [ item (quantifiers/all-grouped data/products) ]
+  ;(doseq [ item (quantifiers/all-grouped data/products) ]
+  ; AGGREGATE
+  ;(let [ item (aggregate/count-simple) ]
+  ;(let [ item (aggregate/count-cond) ]
+  ;(doseq [ item (aggregate/count-nested data/customers) ]
+  ;(doseq [ item (aggregate/count-grouped data/products) ]
+  ;(let [ item (aggregate/sum-simple) ]
+  ;(let [ item (aggregate/sum-projection) ]
+  ;(doseq [ item (aggregate/sum-grouped data/products) ]
+  ;(let [ item (aggregate/min-simple) ]
+  ;(let [ item (aggregate/min-projection) ]
+  ;(doseq [ item (aggregate/min-grouped data/products) ]
+  ;(doseq [ item (aggregate/min-elements data/products) ]
+  ;(let [ item (aggregate/max-simple) ]
+  ;(let [ item (aggregate/max-projection) ]
+  ;(doseq [ item (aggregate/max-grouped data/products) ]
+  ;(doseq [ item (aggregate/max-elements data/products) ]
+  ;(let [ item (aggregate/average-simple) ]
+  ;(let [ item (aggregate/average-projection) ]
+  ;(doseq [ item (aggregate/average-grouped data/products) ]
+  ;(let [ item (aggregate/aggregate-simple) ]
+  (let [ item (aggregate/aggregate-seed) ]
     (println item)))
