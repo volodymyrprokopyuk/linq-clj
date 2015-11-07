@@ -9,7 +9,8 @@
     [ linq-clj.set :as set ]
     [ linq-clj.conversion :as conversion ]
     [ linq-clj.element :as element ]
-    [ linq-clj.generation :as generation ]))
+    [ linq-clj.generation :as generation ]
+    [ linq-clj.quantifiers :as quantifiers ]))
 
 (defn xtest [ ]
   ; RESTRICTION
@@ -84,5 +85,10 @@
   ;(let [ item (element/element-at) ]
   ; GENERATION
   ;(doseq [ item (generation/xrange) ]
-  (doseq [ item (generation/xrepeat) ]
+  ;(doseq [ item (generation/xrepeat) ]
+  ; QUANTIFIERS
+  ;(let [ item (quantifiers/any-simple) ]
+  ;(doseq [ item (quantifiers/any-grouped data/products) ]
+  ;(let [ item (quantifiers/all-simple) ]
+  (doseq [ item (quantifiers/all-grouped data/products) ]
     (println item)))
