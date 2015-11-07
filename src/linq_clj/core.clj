@@ -8,7 +8,8 @@
     [ linq-clj.grouping :as grouping ]
     [ linq-clj.set :as set ]
     [ linq-clj.conversion :as conversion ]
-    [ linq-clj.element :as element ]))
+    [ linq-clj.element :as element ]
+    [ linq-clj.generation :as generation ]))
 
 (defn xtest [ ]
   ; RESTRICTION
@@ -80,5 +81,8 @@
   ;(let [ item (element/first-cond) ]
   ;(let [ item  (element/first-or-default-simple) ]
   ;(let [ item  (element/first-or-default-cond data/products) ]
-  (let [ item (element/element-at) ]
+  ;(let [ item (element/element-at) ]
+  ; GENERATION
+  ;(doseq [ item (generation/xrange) ]
+  (doseq [ item (generation/xrepeat) ]
     (println item)))
