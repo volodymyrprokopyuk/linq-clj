@@ -10,7 +10,19 @@
          index (doall (range 0 (count nums))) ]
     (map vector nums index)))
 
-(defn reuse [ ]
-  (let [ nums [ 5 4 1 3 9 8 6 7 2 0 ]
-         neg-nums (map - nums) ]
-    [ (filter #(<= %1 3) nums) (filter #(<= %1 3) neg-nums) ]))
+(defn reuse1 [ ]
+  (let [ le3 (partial filter #(<= %1 3))
+         nums1 [ 5 4 1 3 9 8 6 7 2 0 ]
+         nums2 (map - nums1)
+         res1 (le3 nums1)
+         res2 (le3 nums2) ]
+    [ res1 res2 ]))
+
+(def ^:dynamic *nums* [ 5 4 1 3 9 8 6 7 2 0 ])
+
+(defn reuse2 [ ]
+  (let [ le3 (partial filter #(<= %1 3))
+         res1 (le3 *nums*)
+         res2 (binding [ *nums* (map - *nums*) ]
+                (le3 *nums*)) ]
+    [ res1 res2 ]))

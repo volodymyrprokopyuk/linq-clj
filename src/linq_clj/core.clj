@@ -126,5 +126,6 @@
   ; QUERY
   ;(doseq [ item (query/xdeferred) ]
   ;(doseq [ item (query/immediate) ]
-  (doseq [ item (query/reuse) ]
+  ;(doseq [ item (query/reuse1) ]
+  (doseq [ item (query/reuse2) ]
     (println item)))
