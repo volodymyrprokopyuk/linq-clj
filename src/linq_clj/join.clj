@@ -19,7 +19,7 @@
 
 (defn outer-join [ products ]
   (let [ categories [ "Beverages" "Condiments" "Vegetables"
-                      "Dairy Products" "Seafood" "XX" ]
+                      "Dairy Products" "Seafood" ]
          cat-set (into #{ }
                    (map #(hash-map :category %1) categories))
          joined-set  (set/join cat-set products)
