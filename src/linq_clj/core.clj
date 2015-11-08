@@ -14,7 +14,8 @@
     [ linq-clj.aggregate :as aggregate ]
     [ linq-clj.misc :as misc ]
     [ linq-clj.sequence :as sequence ]
-    [ linq-clj.query :as query ]))
+    [ linq-clj.query :as query ]
+    [ linq-clj.join :as join ]))
 
 (defn xtest [ ]
   ; RESTRICTION
@@ -127,5 +128,9 @@
   ;(doseq [ item (query/xdeferred) ]
   ;(doseq [ item (query/immediate) ]
   ;(doseq [ item (query/reuse1) ]
-  (doseq [ item (query/reuse2) ]
+  ;(doseq [ item (query/reuse2) ]
+  ; JOIN
+  ;(doseq [ item (join/cross-join data/products) ]
+  ;(doseq [ item (join/group-join data/products) ]
+  (doseq [ item (join/outer-join data/products) ]
     (println item)))
