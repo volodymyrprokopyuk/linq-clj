@@ -1,31 +1,31 @@
 (ns linq-clj.data
   (:require
-    [ clojure.java.io :as io ]
-    [ clojure.xml :as xml ]
-    [ clojure.zip :as zip ]
-    [ clojure.data.zip.xml :as x ]
+    [ clojure.java.io :refer [ reader ] ]
+    [ clojure.data.xml :refer [ parse ] ]
+    [ clojure.zip :refer [ xml-zip ] ]
+    [ clojure.data.zip.xml :refer [ xml-> xml1-> attr attr= text ] ]
     [ clj-time.format :as tmf ]))
 
 (defn order->map [ order ]
   (let [ tf (tmf/formatters :date-hour-minute-second) ]
-    { :id (Integer/parseInt (x/xml1-> order :id x/text))
-      :date (tmf/parse tf (x/xml1-> order :orderdate x/text))
-      :total (Double/parseDouble (x/xml1-> order :total x/text)) }))
+    { :id (Integer/parseInt (xml1-> order :id text))
+      :date (tmf/parse tf (xml1-> order :orderdate text))
+      :total (Double/parseDouble (xml1-> order :total text)) }))
 
 (defn customer->map [ customer ]
-  { :id (x/xml1-> customer :id x/text)
-    :name (x/xml1-> customer :name x/text)
-    :addres (x/xml1-> customer :address x/text)
-    :city (x/xml1-> customer :city x/text)
-    :postal-code (x/xml1-> customer :postalcode x/text)
-    :country (x/xml1-> customer :country x/text)
-    :phone (x/xml1-> customer :phone x/text)
-    :fax (x/xml1-> customer :fax x/text)
-    :orders (mapv order->map (x/xml-> customer :orders :order)) })
+  { :id (xml1-> customer :id text)
+    :name (xml1-> customer :name text)
+    :addres (xml1-> customer :address text)
+    :city (xml1-> customer :city text)
+    :postal-code (xml1-> customer :postalcode text)
+    :country (xml1-> customer :country text)
+    :phone (xml1-> customer :phone text)
+    :fax (xml1-> customer :fax text)
+    :orders (mapv order->map (xml-> customer :orders :order)) })
 
 (defn import-customers [ file ]
-  (let [ customers (-> file io/file xml/parse zip/xml-zip) ]
-    (for [ customer (x/xml-> customers :customer) ]
+  (let [ customers (-> file reader parse xml-zip) ]
+    (for [ customer (xml-> customers :customer) ]
       (customer->map customer))))
 
 (def customers (import-customers "resources/customers.xml"))
